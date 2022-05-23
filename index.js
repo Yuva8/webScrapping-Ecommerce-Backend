@@ -29,16 +29,6 @@ const getdata = async (req, res, next) => {
 }
 app.use("/get",getdata)
 
-const postdata = async(req, res,next) => {
-    try{
-        var Response =await mongo.SelectedDB.collection('productdata').insert(req.body);
-        res.send(Response);
-    }
-    catch(err){
-        console.log(err);
-    }
-}
-app.post('/create', postdata)
 
 
 scraping()
