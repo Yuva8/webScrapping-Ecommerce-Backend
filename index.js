@@ -7,7 +7,7 @@ dotenv.config();
 const {ObjectId} = require('mongodb');
 mongo.connect()
 const app = express();
-PORT = 4025;
+
 
 app.use(cors())
 
@@ -42,4 +42,9 @@ app.post('/create', postdata)
 
 
 scraping()
-app.listen(PORT  || 3050);
+const port=process.env.PORT || 3050;
+
+app.listen(port,function(){
+    console.log("Server started successfully");
+});
+// app.listen(PORT  || 3050);

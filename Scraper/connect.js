@@ -4,7 +4,7 @@ module.exports = {
     SelectedDB : {},
     async connect (){
         try{
-              const client =  await MongoClient.connect('mongodb+srv://yuvarajmuthu:IZSDrDyN0EnaezPw@cluster0.8ufr6.mongodb.net/?retryWrites=true&w=majority',{ useNewUrlParser: true});
+              const client =  await MongoClient.connect(process.env.MONGO_DB_URL,{ useNewUrlParser: true});
               this.SelectedDB = client.db('Ecommerce');
               console.log(this.SelectedDB);
         }
